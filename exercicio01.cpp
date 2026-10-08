@@ -47,45 +47,59 @@ int main() {
             case 0:
                 cout << "\n\n\t\tSaindo..";
                 break;
+
             case 1:
-                inicio();
+                inserirInicio();
                 break;
+
             case 2:
-                consultar();
+                consultarAnterior();
                 break;
+
             case 3:
-                ilista();
+                ordenarPreco();
                 break;
+
             case 4:
-                klista();
+                removerFim();
                 break;
+
             case 5:
-                riflista();
+                inserirPosterior();
                 break;
+
             case 6:
-                rflista();
+                alterarPosicao();
                 break;
+
             case 7:
-                rklista();
+                alterarAnterior();
                 break;
+
             case 8:
-                uplista();
+                mostrarGenero();
                 break;
+
             case 9:
-                uplista();
+                verificarNota();
                 break;
+
             case 10:
-                uplista();
+                alterarNome();
                 break;
+
             case 11:
-                uplista();
+                imprimirLista();
                 break;
+
             case 12:
-                uplista();
+                imprimirQuantidade();
                 break;
+
             case 13:
-                uplista();
+                inserirFim();
                 break;
+
             default:
                 cout << "\n\n\t\tOpção inválida. Digite outra opção.";
                 break;
