@@ -22,7 +22,7 @@ bool sinal;
 char conf;
 
 livro val;
-livro lista[N] = 	{{1,"9788582850015", "Memórias Póstumas de Brás Cubas", "Romance", "Machado de Assis", 47.90, 4.5},	//0
+livro lista[N] = 	{{1, "9788582850015", "Memórias Póstumas de Brás Cubas", "Romance", "Machado de Assis", 47.90, 4.5}, //0
                      {2, "9788535902778", "1984", "Distopia", "George Orwell", 39.90, 9.2}, //1
                      {3, "9788532530783", "O Hobbit", "Fantasia", "J.R.R. Tolkien", 49.90, 9.5}, //2
                      {4, "9786555320350", "Dom Casmurro", "Romance", "Machado de Assis", 29.90, 8.8}, //3
@@ -140,28 +140,28 @@ sinal = false;
         for(int i = 0; i < final ; i++){
             for(int j = 0; j < final-i; j++){
                 if(lista[j].preco > lista[j+1].preco){ 
-                val=lista[j];
-                lista[j]=lista[j+1];
-                lista[j+1]=val;
+                    val=lista[j];
+                    lista[j]=lista[j+1];
+                    lista[j+1]=val;
                 }
             }
         }
 
             //IMPRESSÃO DA LISTA ORDENADA
 	    cout << "\n\n\t\t\tLISTAGEM DE LIVROS ";
-	
 	    cout << "\n\n\t\t"  << setw(7)  << "ID"
                             << setw(42) <<"NOME DO LIVRO"
-                            << setw(14) <<"PREÇO\n";
+                            << setw(18) <<"PREÇO\n";
 
             for(aux = 0; aux <= final ; aux++){
                 val = lista[aux];
                 cout << "\n\t\t" << setw(7)  << val.id 
                                  << setw(42) << val.nome
-                                 << setw(14) << val.preco;
+                                 << setw(12) << "R$ "
+                                 << fixed << setprecision(2)
+                                 << val.preco;
             }
             sinal = true;
-
     } else { cout << "\n\tLista Vazia..." << endl;        
             }
 
@@ -175,10 +175,10 @@ int pos = 0;
 
 if (final > -1){
 
-        //PROCURAR NÓ DE ID = X
-        cout << "\n\n\t\t\tPROCURAR ID "
-            << "\n\n\tDigite o ID que deseja procurar na lista: ";
-        cin >> X;
+    //PROCURAR NÓ DE ID = X
+    cout << "\n\n\t\t\tPROCURAR ID "
+         << "\n\n\tDigite o ID que deseja procurar na lista: ";
+    cin >> X;
 
             while(lista[pos].id != X  &&  pos < final){
                 pos = pos + 1;
@@ -186,10 +186,10 @@ if (final > -1){
 
             if(lista[pos].id = X){
                 cout << "\n\n\t\t"  << setw(7)  << "ID"
-                            << setw(42) <<"NOME DO LIVRO"
-                            << setw(35) <<"AUTOR\n";
+                                    << setw(42) <<"NOME DO LIVRO"
+                                    << setw(35) <<"AUTOR\n";
 
-                            val = lista[pos-1];
+            val = lista[pos-1];
                 cout << "\n\t\t" << setw(7)  << val.id 
                                  << setw(42) << val.nome
                                  << setw(35) << val.autor;
@@ -229,25 +229,57 @@ if (final > -1){
     }
             
 
-    }else{
-    cout << "\n\tLista Vazia..." << endl;        
-    }
+    }else cout << "\n\tLista Vazia..." << endl;        
+    
 }
 
-void imprimirLista(){
+void imprimirLista(){ //IMPRESSÃO DA LISTA
 system("cls");
+sinal = false;
 
-        //IMPRESSÃO DA LISTA
+if (final > -1){
 	    cout << "\n\n\t\t\tLISTA DOS LIVROS ";
 	
 	    cout << "\n\n\t\t"  << setw(7)  << "ID"
                             << setw(42) <<"NOME DO LIVRO"
-                            << setw(14) <<"PREÇO\n";
+                            << setw(18) <<"PREÇO\n";
 
             for(aux = 0; aux <= final ; aux++){
                 val = lista[aux];
                 cout << "\n\t\t" << setw(7)  << val.id 
                                  << setw(42) << val.nome
-                                 << setw(14) << val.preco;
+                                 << setw(12) << "R$ "
+                                 << fixed << setprecision(2)
+                                 << val.preco;
             }
+
+    cout << "\n\n\tMostrar mais detalhes do livro? (S/N): ";
+    cin >> conf;
+	conf = toupper(conf);
+
+    if (conf == 'S'){
+        system("cls");
+        
+        for(aux = 0; aux <= final ; aux++){
+                val = lista[aux];
+                cout << "\n\t\t" << aux << " - "
+                                 << val.nome;
+            }
+            cout << "\n\n\t\tSelecione o Livro: ";
+
+            cin >> aux;
+            val = lista[aux];
+            system("cls");
+
+            cout << "\tDETALHES DO LIVRO\n\n";
+            cout << "ID = " << val.id;
+            cout << "\nISBN = " << val.isbn;
+            cout << "\nNOME = " << val.nome;
+            cout << "\nGÊNERO = " << val.genero;
+            cout << "\nAUTOR = " << val.autor;
+            cout << "\nPREÇO = R$ " << val.preco;
+            cout << "\nNOTA = " << val.nota;
+
+        }
+    }else cout << "\n\tLista Vazia..." << endl;
 }
