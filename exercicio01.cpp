@@ -22,19 +22,19 @@ bool sinal;
 char conf;
 
 livro val;
-livro lista[N] = 	{{1, "9788582850015", "Memórias Póstumas de Brás Cubas", "Romance", "Machado de Assis", 47.90, 4.5}, //0
+livro lista[N] = 	{{1, "9788582850015", "Memï¿½rias Pï¿½stumas de Brï¿½s Cubas", "Romance", "Machado de Assis", 47.90, 4.5}, //0
                      {2, "9788535902778", "1984", "Distopia", "George Orwell", 39.90, 9.2}, //1
                      {3, "9788532530783", "O Hobbit", "Fantasia", "J.R.R. Tolkien", 49.90, 9.5}, //2
                      {4, "9786555320350", "Dom Casmurro", "Romance", "Machado de Assis", 29.90, 8.8}, //3
-                     {5, "9788535914849", "A Revolução dos Bichos", "Sátira", "George Orwell", 34.90, 9.1}, //4
-                     {6, "9788544001820", "O Código Da Vinci", "Suspense", "Dan Brown", 44.90, 8.5}, //5
-                     {7, "9788576573134", "A Culpa é das Estrelas", "Romance", "John Green", 39.90, 8.4}, //6
-                     {8, "9788535911663", "O Pequeno Príncipe", "Fábula", "Antoine de Saint-Exupéry", 24.90, 9.6} //7
+                     {5, "9788535914849", "A Revoluï¿½ï¿½o dos Bichos", "Sï¿½tira", "George Orwell", 34.90, 9.1}, //4
+                     {6, "9788544001820", "O Cï¿½digo Da Vinci", "Suspense", "Dan Brown", 44.90, 8.5}, //5
+                     {7, "9788576573134", "A Culpa ï¿½ das Estrelas", "Romance", "John Green", 39.90, 8.4}, //6
+                     {8, "9788535911663", "O Pequeno Prï¿½ncipe", "Fï¿½bula", "Antoine de Saint-Exupï¿½ry", 24.90, 9.6} //7
 					};
 
-void ordenarPreco(); //Exercício Nº4
-void alterarAnterior(); //Exercício Nº8
-void imprimirLista(); //Exercício Nº12
+void ordenarPreco(); //Exercï¿½cio Nï¿½4
+void alterarAnterior(); //Exercï¿½cio Nï¿½8
+void imprimirLista(); //Exercï¿½cio Nï¿½12
 
 int main() {
     setlocale(LC_ALL, "Portuguese");
@@ -46,21 +46,21 @@ int main() {
 
         cout << "\n\n\t\t\tGerenciamento de Livros";
         cout << "\n\n\t\t0 - Sair";
-        cout << "\n\t\t1 - Inserir no início";
-        cout << "\n\t\t2 - Consultar o nó anterior da posição K";
-        cout << "\n\t\t3 - Classificar a lista em ordem crescente de preço";
-        cout << "\n\t\t4 - Remover o nó no fim";
-        cout << "\n\t\t5 - Procurar o nó por nome/descrição do livro e inserir o novo na posição anterior à do nó encontrado";
-        cout << "\n\t\t6 - Alterar o conteúdo de um livro na posição K+2";
-        cout << "\n\t\t7 - Procurar um nó com ID igual a X e alterar o conteúdo do nó anterior ao encontrado";
-        cout << "\n\t\t8 - Mostrar todos os livros do gênero X";
-        cout << "\n\t\t9 - Verificar/imprimir a quantidade e as informações de nós com nota maior ou igual a X";
-        cout << "\n\t\t10 - Alterar conteúdo de um nó com o nome igual a X";
+        cout << "\n\t\t1 - Inserir no inï¿½cio";
+        cout << "\n\t\t2 - Consultar o nï¿½ anterior da posiï¿½ï¿½o K";
+        cout << "\n\t\t3 - Classificar a lista em ordem crescente de preï¿½o";
+        cout << "\n\t\t4 - Remover o nï¿½ no fim";
+        cout << "\n\t\t5 - Procurar o nï¿½ por nome/descriï¿½ï¿½o do livro e inserir o novo na posiï¿½ï¿½o anterior ï¿½ do nï¿½ encontrado";
+        cout << "\n\t\t6 - Alterar o conteï¿½do de um livro na posiï¿½ï¿½o K+2";
+        cout << "\n\t\t7 - Procurar um nï¿½ com ID igual a X e alterar o conteï¿½do do nï¿½ anterior ao encontrado";
+        cout << "\n\t\t8 - Mostrar todos os livros do gï¿½nero X";
+        cout << "\n\t\t9 - Verificar/imprimir a quantidade e as informaï¿½ï¿½es de nï¿½s com nota maior ou igual a X";
+        cout << "\n\t\t10 - Alterar conteï¿½do de um nï¿½ com o nome igual a X";
         cout << "\n\t\t11 - Imprimir a lista de livros";
-        cout << "\n\t\t12 - Imprimir os valores dos nós com quantidade menor ou igual que Z";
-        cout << "\n\t\t13 - Inserir um nó no fim da lista";
+        cout << "\n\t\t12 - Imprimir os valores dos nï¿½s com quantidade menor ou igual que Z";
+        cout << "\n\t\t13 - Inserir um nï¿½ no fim da lista";
 
-        cout << "\n\n\tEscolha uma opção: ";
+        cout << "\n\n\tEscolha uma opï¿½ï¿½o: ";
         cin >> op;
 
         switch (op) {
@@ -121,7 +121,7 @@ int main() {
                 break;
             */
             default:
-                cout << "\n\n\t\tOpção inválida. Digite outra opção.";
+                cout << "\n\n\t\tOpï¿½ï¿½o invï¿½lida. Digite outra opï¿½ï¿½o.";
                 break;
         }
 
@@ -132,7 +132,7 @@ int main() {
     return 0;
 }
 
-void ordenarPreco(){//ORDENAR LIVROS POR ORDEM CRESCENTE DE PREÇO
+void ordenarPreco(){//ORDENAR LIVROS POR ORDEM CRESCENTE DE PREï¿½O
 system("cls");
 sinal = false;
 
@@ -147,11 +147,11 @@ sinal = false;
             }
         }
 
-            //IMPRESSÃO DA LISTA ORDENADA
+            //IMPRESSï¿½O DA LISTA ORDENADA
 	    cout << "\n\n\t\t\tLISTAGEM DE LIVROS ";
 	    cout << "\n\n\t\t"  << setw(7)  << "ID"
                             << setw(42) <<"NOME DO LIVRO"
-                            << setw(18) <<"PREÇO\n";
+                            << setw(18) <<"PREï¿½O\n";
 
             for(aux = 0; aux <= final ; aux++){
                 val = lista[aux];
@@ -167,7 +167,7 @@ sinal = false;
 
 }
 
-void alterarAnterior(){//PROCURAR ID X E ALTERAR NÓ ANTERIOR
+void alterarAnterior(){//PROCURAR ID X E ALTERAR Nï¿½ ANTERIOR
 system("cls");
 sinal = false;
 int X;
@@ -175,7 +175,7 @@ int pos = 0;
 
 if (final > -1){
 
-    //PROCURAR NÓ DE ID = X
+    //PROCURAR Nï¿½ DE ID = X
     cout << "\n\n\t\t\tPROCURAR ID "
          << "\n\n\tDigite o ID que deseja procurar na lista: ";
     cin >> X;
@@ -195,7 +195,7 @@ if (final > -1){
                                  << setw(35) << val.autor;
 
                     getch();
-                    cout << "\n\n\tDeseja alterar o conteúdo do livro acima? (S/N): ";
+                    cout << "\n\n\tDeseja alterar o conteï¿½do do livro acima? (S/N): ";
                     cin >> conf;
 		            conf = toupper(conf);
 
@@ -210,13 +210,13 @@ if (final > -1){
             cout << "\n\t\tInforme o nome do livro: ";
             fflush(stdin);
             getline(cin,val.nome);
-            cout << "\n\t\tInforme o gênero do livro: ";
+            cout << "\n\t\tInforme o gï¿½nero do livro: ";
             fflush(stdin);
             getline(cin,val.genero);
              cout << "\n\t\tInforme o autor do livro: ";
             fflush(stdin);
             getline(cin,val.autor);
-            cout << "\n\t\tInforme o preço do livro: "; 
+            cout << "\n\t\tInforme o preï¿½o do livro: "; 
             cin >> val.preco;
             cout << "\n\t\tInforme a nota do livro: "; 
             cin >> val.nota;
@@ -224,7 +224,7 @@ if (final > -1){
             lista[pos-1] = val;
             sinal = true;                  
 			
-		}else cout << "\n\t\tDados não confirmados...";
+		}else cout << "\n\t\tDados nï¿½o confirmados...";
 
     }
             
@@ -233,7 +233,7 @@ if (final > -1){
     
 }
 
-void imprimirLista(){ //IMPRESSÃO DA LISTA
+void imprimirLista(){ //IMPRESSï¿½O DA LISTA
 system("cls");
 sinal = false;
 
@@ -242,7 +242,7 @@ if (final > -1){
 	
 	    cout << "\n\n\t\t"  << setw(7)  << "ID"
                             << setw(42) <<"NOME DO LIVRO"
-                            << setw(18) <<"PREÇO\n";
+                            << setw(18) <<"PREï¿½O\n";
 
             for(aux = 0; aux <= final ; aux++){
                 val = lista[aux];
@@ -275,9 +275,9 @@ if (final > -1){
             cout << "ID = " << val.id;
             cout << "\nISBN = " << val.isbn;
             cout << "\nNOME = " << val.nome;
-            cout << "\nGÊNERO = " << val.genero;
+            cout << "\nGï¿½NERO = " << val.genero;
             cout << "\nAUTOR = " << val.autor;
-            cout << "\nPREÇO = R$ " << val.preco;
+            cout << "\nPREï¿½O = R$ " << val.preco;
             cout << "\nNOTA = " << val.nota;
 
         }
