@@ -18,7 +18,7 @@ struct livro {
     double nota;
 };
 
-int final = 7, aux;
+int final = 7, aux, K;
 bool sinal;
 char conf;
 livro val;
@@ -34,10 +34,12 @@ livro lista[N] = {
     {8, "9788535911663", "O Pequeno Príncipe", "Fábula", "Antoine de Saint-Exupéry", 24.90, 9.6}
 };
 
-void consultarAnterior(); // 2 - consultar o nó anterior da posição K.
-void ordenarPreco(); // 3 - classificar a lista em ordem crescente de preço.
-void alterarAnterior(); // 7 - procurar um nó com ID igual a X e alterar o conteúdo do nó anterior ao encontrado.
-void imprimirLista();   // 11 - imprimir a lista de livros e permitir consultar seus detalhes.
+void consultarAnterior(); // Opção 2
+void ordenarPreco();      // Opção 3
+void alterarPosicao();    // Opção 6
+void alterarAnterior();   // Opção 7
+void alterarNome();       // Opção 10
+void imprimirLista();     // Opção 11
 
 int main() {
     setlocale(LC_ALL, "Portuguese");
@@ -68,47 +70,47 @@ int main() {
 
         switch (op) {
             case 0:
-                cout << "\n\n\t\tSaindo..";
+                cout << "\n\n\t\tSaindo...";
                 break;
-            case 1:
-                inserirInicio();
-                break;
+            // case 1:
+            //     inserirInicio();
+            //     break;
             case 2:
                 consultarAnterior();
                 break;
             case 3:
                 ordenarPreco();
                 break;
-            case 4:
-                removerFim();
-                break;
-            case 5:
-                inserirPosterior();
-                break;
+            // case 4:
+            //     removerFim();
+            //     break;
+            // case 5:
+            //     inserirAnterior();
+            //     break;
             case 6:
                 alterarPosicao();
                 break;
             case 7:
                 alterarAnterior();
                 break;
-            case 8:
-                mostrarGenero();
-                break;
-            case 9:
-                verificarNota();
-                break;
+            // case 8:
+            //     mostrarGenero();
+            //     break;
+            // case 9:
+            //     verificarNota();
+            //     break;
             case 10:
                 alterarNome();
                 break;
             case 11:
                 imprimirLista();
                 break;
-            case 12:
-                imprimirQuantidade();
-                break;
-            case 13:
-                inserirFim();
-                break;
+            // case 12:
+            //     imprimirQuantidade();
+            //     break;
+            // case 13:
+            //     inserirFim();
+            //     break;
             default:
                 cout << "\n\n\t\tOpção inválida. Digite outra opção.";
                 break;
@@ -121,32 +123,32 @@ int main() {
     return 0;
 }
 
-// Exercício 03: consultar o nó anterior da posição K.
+// Exercício 02: consultar o nó anterior da posição K.
 void consultarAnterior() {
     system("cls");
-	sinal = false;
-	if (final != -1) {
-		cout << "\n\n\tDigite uma posição K da lista para acessar o seu anterior: ";
-		cin >> K;
-		if (K > 0 && K <= final) {
-			val = lista[K - 1];
-			cout << "\n\n\tO anterior da posição " << K << " na lista é igual a: ";
-			cout << "\n\t\tId: " << val.id;
-			cout << "\n\t\tISBN: " << val.isbn;
-			cout << "\n\t\tNome: " << val.nome;
-			cout << "\n\t\tGênero: " << val.genero;
-			cout << "\n\t\tAutor: " << val.autor;
-			cout << "\n\t\tNota: " << val.nota;			
-			sinal = true;
-		} else {
-			cout << "\n\tA posição " << K << " não pertence à lista";
-		}
-	} else {
-		cout << "Lista vazia";
-	}
+    sinal = false;
+    if (final != -1) {
+        cout << "\n\n\tDigite uma posição K da lista para acessar o seu anterior: ";
+        cin >> K;
+        if (K > 0 && K <= final) {
+            val = lista[K - 1];
+            cout << "\n\n\tO anterior da posição " << K << " na lista é igual a: ";
+            cout << "\n\t\tId: " << val.id;
+            cout << "\n\t\tISBN: " << val.isbn;
+            cout << "\n\t\tNome: " << val.nome;
+            cout << "\n\t\tGênero: " << val.genero;
+            cout << "\n\t\tAutor: " << val.autor;
+            cout << "\n\t\tNota: " << val.nota;         
+            sinal = true;
+        } else {
+            cout << "\n\tA posição " << K << " não pertence à lista";
+        }
+    } else {
+        cout << "Lista vazia";
+    }
 }
 
-// Exercício 04: classificar a lista em ordem crescente de preço.
+// Exercício 03: classificar a lista em ordem crescente de preço.
 void ordenarPreco() {
     system("cls");
     sinal = false;
@@ -180,7 +182,53 @@ void ordenarPreco() {
     }
 }
 
-// Exercício 08: procurar um ID X e alterar o livro da posição anterior.
+// Exercício 06: alterar o conteúdo de um livro na posição K+2
+void alterarPosicao() {
+    system("cls");
+    sinal = false;
+    if (final != -1) {
+        cout << "\n\n\tDigite uma posição K da lista para acessar o posterior do posterior: ";
+        cin >> K;
+        if (K >= 0 && (K + 2) <= final) {
+            val = lista[K + 2];
+            cout << "\n\n\tVocê deseja mesmo alterar este conteúdo?: ";
+            cout << "\n\t\tId: " << val.id;
+            cout << "\n\t\tISBN: " << val.isbn;
+            cout << "\n\t\tNome: " << val.nome;
+            cout << "\n\t\tGênero: " << val.genero;
+            cout << "\n\t\tAutor: " << val.autor;
+            cout << "\n\t\tNota: " << val.nota; 
+            cout << "\n\tConfirmação [S/N]: ";
+            cin >> conf;
+            
+            if (conf == 'S' || conf == 's') {
+                cout << "\n\tNovo id: ";
+                cin >> val.id;
+                cout << "\n\tNovo ISBN: ";
+                cin >> val.isbn;
+                cout << "\n\tNovo nome: ";
+                cin >> val.nome;
+                cout << "\n\tNovo gênero: ";
+                cin >> val.genero;
+                cout << "\n\tNovo autor: ";
+                cin >> val.autor;
+                cout << "\n\tNovo nota: ";
+                cin >> val.nota;
+                
+                lista[K + 2] = val;
+                sinal = true;
+            } else {
+                cout << "\n\n\tDados não confirmados";
+            }
+        } else {
+            cout << "\n\n\tDado não pertence à lista";
+        }
+    } else {
+        cout << "\n\n\tLista vazia";
+    }
+}
+
+// Exercício 07: procurar um ID X e alterar o livro da posição anterior.
 void alterarAnterior() {
     system("cls");
     sinal = false;
@@ -220,18 +268,14 @@ void alterarAnterior() {
             if (conf == 'S') {
                 cout << "\n\t\tInforme o ID do livro: ";
                 cin >> val.id;
-                cout << "\n\t\tInforme o ISBN (International Standard Book Number) do livro: ";
-                fflush(stdin);
-                getline(cin, val.isbn);
+                cout << "\n\t\tInforme o ISBN do livro: ";
+                cin >> val.isbn;
                 cout << "\n\t\tInforme o nome do livro: ";
-                fflush(stdin);
-                getline(cin, val.nome);
+                cin >> val.nome;
                 cout << "\n\t\tInforme o gênero do livro: ";
-                fflush(stdin);
-                getline(cin, val.genero);
+                cin >> val.genero;
                 cout << "\n\t\tInforme o autor do livro: ";
-                fflush(stdin);
-                getline(cin, val.autor);
+                cin >> val.autor;
                 cout << "\n\t\tInforme o preço do livro: ";
                 cin >> val.preco;
                 cout << "\n\t\tInforme a nota do livro: ";
@@ -250,7 +294,67 @@ void alterarAnterior() {
     }
 }
 
-// 11 - imprimir a lista de livros e permitir consultar seus detalhes.
+// Exercício 10: alterar conteúdo de um nó com o nome igual a X
+void alterarNome() {
+    system("cls");
+    string x;
+    sinal = false;
+
+    if (final != -1) {
+        cout << "\n\tDigite o nome de um livro: ";
+        cin >> x;
+
+        aux = 0;
+        while (aux <= final && lista[aux].nome != x) {
+            aux++;
+        }
+
+        if (aux <= final && lista[aux].nome == x) {
+            val = lista[aux];
+
+            cout << "\n\n\tOs dados deste livro são: ";
+            cout << "\n\tId: " << lista[aux].id;
+            cout << "\n\tISBN: " << lista[aux].isbn;
+            cout << "\n\tNome: " << lista[aux].nome;
+            cout << "\n\tGênero: " << lista[aux].genero;
+            cout << "\n\tAutor: " << lista[aux].autor;
+            cout << "\n\tNota: " << lista[aux].nota;
+
+            cout << "\n\n\tDeseja confirmar a alteração? [S/N]: ";
+            cin >> conf;
+
+            if (conf == 'S' || conf == 's') {
+                cout << "\n\n\tDigite os novos dados do livro: \n";
+
+                cout << "\tId: ";
+                cin >> val.id;
+                cout << "\tISBN: ";
+                cin >> val.isbn;
+                cout << "\tNome: ";
+                cin >> val.nome;
+                cout << "\tGênero: ";
+                cin >> val.genero;
+                cout << "\tAutor: ";
+                cin >> val.autor;
+                cout << "\tPreço: ";
+                cin >> val.preco;
+                cout << "\tNota: ";
+                cin >> val.nota;
+
+                lista[aux] = val;
+                sinal = true;
+            } else {
+                cout << "\n\n\tAlteração não confirmada";
+            }
+        } else {
+            cout << "\n\n\tDado não pertence à lista";
+        }
+    } else {
+        cout << "\n\n\tLista vazia";
+    }
+}
+
+// Exercício 11: imprimir a lista de livros e permitir consultar seus detalhes.
 void imprimirLista() {
     system("cls");
     sinal = false;
