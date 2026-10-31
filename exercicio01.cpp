@@ -3,6 +3,15 @@
 #include <conio.h>
 #include <string>
 #include <iomanip>
+#include <cctype> //usado pro toupper
+
+// toupper(): Transforma o texto tudo em maiúsculo
+// getch(): lê uma tecla sem esperar Enter e sem mostrá-la na tela 
+// cin.ignore(): descarta caracteres do buffer
+// getline(cin, x): lê uma linha inteira, com espaços, até o Enter, e guarda em uma string
+// setw(): define a largura do próximo campo
+// setprecision(n): define n casas decimais 
+// fixed: mostra números decimais com ponto fixo, ex.: 37.00
 
 using namespace std;
 
@@ -184,7 +193,7 @@ void consultarAnterior() {
             cout << "\n\t\tNota: " << val.nota;
             cout << "\n\t\tQuantidade: " << val.quantidade;
             sinal = true;
-        } if (K == 0) {
+        } else if (K == 0) {
             cout << "\n\tA posição 0 não possui anterior.";
         } else {
             cout << "\n\tA posição " << K << " não pertence à lista";
@@ -233,8 +242,24 @@ void removerFim() {
         return;
     }
 
-    cout << "\n\tLivro removido do fim: " << lista[final].nome;
-    final--;
+    val = lista[final];
+
+    cout << "\n\tÚltimo livro da lista:";
+    cout << "\n\tId: " << val.id;
+    cout << "\n\tISBN: " << val.isbn;
+    cout << "\n\tNome: " << val.nome;
+    cout << "\n\tPreço: R$ " << fixed << setprecision(2) << val.preco;
+
+    cout << "\n\n\tDeseja realmente remover este livro? [S/N]: ";
+    cin >> conf;
+    conf = toupper(conf);
+
+    if (conf == 'S') {
+        final--;
+        cout << "\n\tLivro removido do fim com sucesso: " << val.nome;
+    } else {
+        cout << "\n\tRemoção cancelada.";
+    }
 }
 
 // Opção 5: Procurar nó por nome e inserir na posição anterior
@@ -317,8 +342,9 @@ void alterarPosicao() {
             cout << "\n\t\tQuantidade: " << val.quantidade;
             cout << "\n\tConfirmação [S/N]: ";
             cin >> conf;
+            conf = toupper(conf);
 
-            if (conf == 'S' || conf == 's') {
+            if (conf == 'S') {
                 cout << "\n\tNovo id: ";
                 cin >> val.id;
                 cout << "\tNovo ISBN: ";
@@ -384,8 +410,9 @@ void alterarAnterior() {
             getch();
             cout << "\n\n\tDeseja alterar o conteúdo do livro acima? (S/N): ";
             cin >> conf;
-
+            conf = toupper(conf);
             system("cls");
+
             if (conf == 'S') {
                 cout << "\n\t\tInforme o ID do livro: ";
                 cin >> val.id;
