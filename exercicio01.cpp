@@ -24,14 +24,14 @@ char conf;
 livro val;
 
 livro lista[N] = {
-    {1, "9788582850015", "Memórias Póstumas de Brás Cubas", "Romance", "Machado de Assis", 47.90, 4.5},
-    {2, "9788535902778", "1984", "Distopia", "George Orwell", 39.90, 9.2},
-    {3, "9788532530783", "O Hobbit", "Fantasia", "J.R.R. Tolkien", 49.90, 9.5},
-    {4, "9786555320350", "Dom Casmurro", "Romance", "Machado de Assis", 29.90, 8.8},
-    {5, "9788535914849", "A Revolução dos Bichos", "Sátira", "George Orwell", 34.90, 9.1},
-    {6, "9788544001820", "O Código Da Vinci", "Suspense", "Dan Brown", 44.90, 8.5},
-    {7, "9788576573134", "A Culpa é das Estrelas", "Romance", "John Green", 39.90, 8.4},
-    {8, "9788535911663", "O Pequeno Príncipe", "Fábula", "Antoine de Saint-Exupéry", 24.90, 9.6}
+    {0, "9788582850015", "Memórias Póstumas de Brás Cubas", "Romance", "Machado de Assis", 47.90, 4.5}, // 0
+    {1, "9788535902778", "1984", "Distopia", "George Orwell", 39.90, 9.2}, // 1
+    {2, "9788532530783", "O Hobbit", "Fantasia", "J.R.R. Tolkien", 49.90, 9.5}, // 2
+    {3, "9786555320350", "Dom Casmurro", "Romance", "Machado de Assis", 29.90, 8.8}, // 3
+    {4, "9788535914849", "A Revolução dos Bichos", "Sátira", "George Orwell", 34.90, 9.1}, // 4
+    {5, "9788544001820", "O Código Da Vinci", "Suspense", "Dan Brown", 44.90, 8.5}, // 5
+    {6, "9788576573134", "A Culpa é das Estrelas", "Romance", "John Green", 39.90, 8.4}, // 6
+    {7, "9788535911663", "O Pequeno Príncipe", "Fábula", "Antoine de Saint-Exupéry", 24.90, 9.6} // 7
 };
 
 void consultarAnterior(); // Opção 2
@@ -141,7 +141,7 @@ void consultarAnterior() {
             cout << "\n\t\tNota: " << val.nota;         
             sinal = true;
         } else {
-            cout << "\n\tA posição " << K << " não pertence à lista";
+            cout << "\n\tA posição " << K - 1 << " não pertence à lista";
         }
     } else {
         cout << "Lista vazia";
