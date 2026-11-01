@@ -148,31 +148,40 @@ void inserirInicio() {
         return;
     }
 
-    final++;
+    char conf;
+    cout << "\n\tDeseja realmente inserir um livro no inicio? (S/N): ";
+    cin >> conf;
+    conf = toupper(conf);
 
-    for (int i = final; i >= 0; i--) {
-        lista[i + 1] = lista[i];
+    if (conf == 'S') {
+        final++;
+
+        for (int i = final - 1; i >= 0; i--) {
+            lista[i + 1] = lista[i];
+        }
+
+        cout << "\n\tDigite o ID: ";
+        cin >> lista[0].id;
+        cout << "\tDigite o ISBN: ";
+        cin >> lista[0].isbn;
+        cin.ignore(); 
+        cout << "\tDigite o nome: ";
+        getline(cin, lista[0].nome);
+        cout << "\tDigite o gênero: ";
+        getline(cin, lista[0].genero);
+        cout << "\tDigite o autor: ";
+        getline(cin, lista[0].autor);
+        cout << "\tDigite o preço: ";
+        cin >> lista[0].preco;
+        cout << "\tDigite a nota: ";
+        cin >> lista[0].nota;
+        cout << "\tDigite a quantidade: ";
+        cin >> lista[0].quantidade;
+
+        cout << "\n\tLivro inserido no início com sucesso!";
+    } else {
+        cout << "\n\tOperação cancelada!";
     }
-
-    cout << "\n\tDigite o ID: ";
-    cin >> lista[0].id;
-    cout << "\tDigite o ISBN: ";
-    cin >> lista[0].isbn;
-    cin.ignore();
-    cout << "\tDigite o nome: ";
-    getline(cin, lista[0].nome);
-    cout << "\tDigite o gênero: ";
-    getline(cin, lista[0].genero);
-    cout << "\tDigite o autor: ";
-    getline(cin, lista[0].autor);
-    cout << "\tDigite o preço: ";
-    cin >> lista[0].preco;
-    cout << "\tDigite a nota: ";
-    cin >> lista[0].nota;
-    cout << "\tDigite a quantidade: ";
-    cin >> lista[0].quantidade;
-
-    cout << "\n\tLivro inserido no início com sucesso!";
 }
 
 // Opção 2: Consultar o nó anterior da posição K
@@ -407,7 +416,6 @@ void alterarAnterior() {
                  << setw(42) << val.nome
                  << setw(35) << val.autor;
 
-            getch();
             cout << "\n\n\tDeseja alterar o conteúdo do livro acima? (S/N): ";
             cin >> conf;
             conf = toupper(conf);
@@ -679,25 +687,34 @@ void inserirFim() {
         return;
     }
 
-    final++;
+    char conf;
+    cout << "\n\tDeseja realmente inserir um livro no fim? (S/N): ";
+    cin >> conf;
+    conf = toupper(conf);
 
-    cout << "\n\tDigite o ID: ";
-    cin >> lista[final].id;
-    cout << "\tDigite o ISBN: ";
-    cin >> lista[final].isbn;
-    cin.ignore();
-    cout << "\tDigite o nome: ";
-    getline(cin, lista[final].nome);
-    cout << "\tDigite o gênero: ";
-    getline(cin, lista[final].genero);
-    cout << "\tDigite o autor: ";
-    getline(cin, lista[final].autor);
-    cout << "\tDigite o preço: ";
-    cin >> lista[final].preco;
-    cout << "\tDigite a nota: ";
-    cin >> lista[final].nota;
-    cout << "\tDigite a quantidade: ";
-    cin >> lista[final].quantidade;
+    if (conf == 'S') {
+        final++;
 
-    cout << "\n\tLivro inserido no fim com sucesso!";
+        cout << "\n\tDigite o ID: ";
+        cin >> lista[final].id;
+        cout << "\tDigite o ISBN: ";
+        cin >> lista[final].isbn;
+        cin.ignore();
+        cout << "\tDigite o nome: ";
+        getline(cin, lista[final].nome);
+        cout << "\tDigite o gênero: ";
+        getline(cin, lista[final].genero);
+        cout << "\tDigite o autor: ";
+        getline(cin, lista[final].autor);
+        cout << "\tDigite o preço: ";
+        cin >> lista[final].preco;
+        cout << "\tDigite a nota: ";
+        cin >> lista[final].nota;
+        cout << "\tDigite a quantidade: ";
+        cin >> lista[final].quantidade;
+
+        cout << "\n\tLivro inserido no fim com sucesso!";
+    } else {
+        cout << "\n\tOperação cancelada!";
+    }
 }
